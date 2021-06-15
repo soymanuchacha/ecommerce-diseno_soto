@@ -1,11 +1,13 @@
 import './App.css';
+import {NavBar} from './components/navBar/navBar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Prueba de texto</p>
-      </header>
+      <NavBar />
+      <section class="hero"></section>
+
+
     </div>
   );
 }
