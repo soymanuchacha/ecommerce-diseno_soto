@@ -10,18 +10,10 @@ header {
 .header__logo {
     height: 6vh;
 }
-.header__logo a img {
+.header__logo img {
     height: 100%;
-}
-a {
-    text-decoration: none;
-    color: #37638e;
-    font-weight: 700;
 }
 ul li{
     display: inline-block;
     padding: 0 2em;
-}
-ul li a img {
-    height: 4vh;
 }

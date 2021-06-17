@@ -1,11 +1,14 @@
 import './App.css';
 import {NavBar} from './components/navBar/navBar';
+import {ItemListContainer} from './components/itemListContainer/itemListContainer';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <section class="hero"></section>
+      <section class="hero">
+        <ItemListContainer greeting="buen shop."/>
+      </section>
 
 
     </div>
