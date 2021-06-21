@@ -1,4 +1,13 @@
-p {
-    margin-top: 2em;
-    font-size: 3em;
+h1 {
+    color: #ee3b36;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+h2 {
+    color: #37638e;
+    font-size: 1.5em;
+}
+.itemFlex {
+    display: flex;
+    justify-content: space-around;
 }
