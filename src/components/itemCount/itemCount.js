@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './itemCount.css'
 
-export const ItemCount = ({stock, initial}) => {
+export const ItemCount = ({stock, initial = 0, onAdd = () => {} }) => {
     const [cantidad, setCantidad] = useState(initial)
     // funcionamiento de los botones
     function increment() {
@@ -18,6 +18,7 @@ export const ItemCount = ({stock, initial}) => {
         } else {
             alert("No compraste nada")
         }
+        onAdd()
     }
 
     
@@ -28,7 +29,7 @@ export const ItemCount = ({stock, initial}) => {
                 <button className="cantButton"
                 onClick={() => decrement()}
                 disabled={cantidad<=initial}>-</button>
-                <p>{cantidad}</p>
+                <p className="counterP">{cantidad}</p>
                 <button className="cantButton"
                 onClick={() => increment()}
                 disabled={cantidad>=stock}>+</button>

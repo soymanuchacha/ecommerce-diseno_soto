@@ -7,7 +7,9 @@ h2 {
     color: #37638e;
     font-size: 1.5em;
 }
-.itemFlex {
+.flexItem {
     display: flex;
+    flex-wrap: wrap;
+    margin: 0 4em;
     justify-content: space-around;
 }
