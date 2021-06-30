@@ -1,32 +1,39 @@
 import './itemListContainer.css'
 import { ItemList } from '../itemList/itemList'
 import { useEffect, useState } from 'react'
+// imagenes
+import gorraOrange from '../../assets/images/gorraOrange.jpeg'
+import gorraFlores from '../../assets/images/gorraFlores.jpeg'
+import fanzineTormenta from '../../assets/images/fanzineTormenta.jpeg'
 
 export const ItemListContainer = ({greeting}) => {
     const productos = [
         {
             id: 1,
+            category: "indumentaria",
             title: "Gorra orange",
-            description: "Bordado a mano. Disponible en amarillo, azul y negro.",
+            description: "Bordado de manera artesanal. Disponible en amarillo, azul y negro.",
             price: 1500,
             stock: 5,
-            pictureUrl: "./gorraOrange.jpeg" /* tampoco entiendo por qué no cargan las imágenes */
+            pictureUrl: gorraOrange
         },
         {
             id: 2,
+            category: "indumentaria",
             title: "Gorra flores",
-            description: "Bordado a mano. Únicamente disponible en rojo.",
+            description: "Bordada de manera artesanal. Únicamente disponible en rojo.",
             price: 1800,
             stock: 2,
-            pictureUrl: "./gorraFlores.jpeg" 
+            pictureUrl: gorraFlores 
         },
         {
             id: 3,
+            category: "prints",
             title: "Fanzine tormenta",
-            description: "Editorial corto impreso en opalina 180gr.",
+            description: "Publicación autoproducida de seis hojas y un poster. Impreso en opalina 180gr.",
             price: 500,
             stock: 20,
-            pictureUrl: "./fanzineTormenta.jpeg"
+            pictureUrl: fanzineTormenta
         }
     ]
 
@@ -46,11 +53,7 @@ export const ItemListContainer = ({greeting}) => {
                 console.log("No pudimos procesar la solicitud")
             }
         )
-    }, 
-    /* ¿por qué esto siguiente me da un error de dependecias?
-    dice que tengo que ponerle [productos] o sacarlo, 
-    pero cualquiera de las dos hace que el console.log() sea infinito */
-    [])
+    },[])
 
     // vista
     return(
