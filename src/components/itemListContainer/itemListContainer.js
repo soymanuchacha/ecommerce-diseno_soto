@@ -1,12 +1,14 @@
 import './itemListContainer.css'
 import { ItemList } from '../itemList/itemList'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 // imagenes
 import gorraOrange from '../../assets/images/gorraOrange.jpeg'
 import gorraFlores from '../../assets/images/gorraFlores.jpeg'
 import fanzineTormenta from '../../assets/images/fanzineTormenta.jpeg'
 
 export const ItemListContainer = ({greeting}) => {
+    const {id} = useParams()
     const productos = [
         {
             id: 1,
@@ -46,21 +48,25 @@ export const ItemListContainer = ({greeting}) => {
         })
         solicitud.then(
             (productos) => {
-                setCatalogoItems(productos)
-                console.log(productos)
+                if (!id) {
+                    setCatalogoItems(productos)
+                } else {
+                    const idProductos = productos.filter( (producto) => producto.category === id)
+                    setCatalogoItems(idProductos)
+                }
             },
             (error) => {
                 console.log("No pudimos procesar la solicitud")
             }
         )
-    },[])
+    },[id])
 
     // vista
     return(
         <section>
             <h1>Este es un {greeting}</h1>
             <div className="flexItem">
-                <ItemList catalogoItems={catalogoItems} />
+            <ItemList catalogoItems={catalogoItems} />
             </div>
         </section> 
     )

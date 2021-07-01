@@ -2,7 +2,7 @@
     width: 60%;
     display: flex;
     justify-content: space-around;
-    margin: 0 auto 1em auto;
+    margin: 0 auto;
     align-items: center;
 }
 .cantButton {
@@ -24,11 +24,12 @@ button:hover {
 }
 button[type="submit"] {
     background-color: #ee3b36;
-    color: #fce5d8;
+    color: white;
     font-weight: bold;
     border: none;
     padding: .6em 1em;
     border-radius: 10px;
     cursor: pointer;
     width: 50%;
+    margin: 0 25%;
 }

@@ -17,3 +17,15 @@ ul li{
     display: inline-block;
     padding: 0 2em;
 }
+.navigation, .navigation:visited {
+    color: #37638e;
+    font-weight: bold;
+}
+.navigation:hover {
+    color: white
+}
+
+.activeLink {
+    color: #ee3b36;
+    font-weight: bold;
+}

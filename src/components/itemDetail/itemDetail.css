@@ -11,6 +11,7 @@
 }
 .itemDetailCard__img img {
     width: 100%;
+    margin-top: 3em;
 }
 .itemDetailCard__txt {
     padding: 2em;
@@ -37,4 +38,5 @@
 .stockAlert {
     color: gray;
     font-size: .8em;
+    text-align: center;
 }
