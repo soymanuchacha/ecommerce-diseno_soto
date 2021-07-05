@@ -40,3 +40,21 @@
     font-size: .8em;
     text-align: center;
 }
+#itemDetailBuyed p {
+    margin: 2em auto 1.4em auto;
+    text-align: center;
+}
+button {
+    background-color: #ee3b36;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: .6em 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 25%;
+}
+button:hover {
+    box-shadow: 0px 1px 5px #ee3b36;
+}

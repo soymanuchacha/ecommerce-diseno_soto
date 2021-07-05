@@ -1,8 +1,22 @@
 import './itemDetail.css'
+import { useState } from 'react'
 import { ItemCount } from "../itemCount/itemCount"
+import { Link } from 'react-router-dom'
 
 export const ItemDetail = ( {item} ) => {
     const {id, title, price, pictureUrl, category, description, stock} = item
+    const [cantidadComprada, setCantidadComprada] = useState(0)
+    const [precioCompra, setPrecioCompra] = useState(0)
+
+    const onAdd = (quantityToAdd) => {
+        // almacenar el valor de itemCount en un estado interno de itemDetail para desaparecer itemCount
+        setCantidadComprada(quantityToAdd.target.value)
+        setPrecioCompra( (quantityToAdd.target.value)*price )
+        // desaparece ItemCount y aparece button terminar compra
+        document.getElementById("itemDetailBuying").style.display="none"
+        document.getElementById("itemDetailBuyed").style.display="block"
+    }
+    
     return(
         <div id={id} className="itemDetailCard">
                 <div className="itemDetailCard__img"><img src={pictureUrl} alt={title}/></div>
@@ -11,9 +25,14 @@ export const ItemDetail = ( {item} ) => {
                     <p className="itemDetailCard__txt--category">Categoría: {category}</p>
                     <p className="itemDetailCard__txt--description">{description}</p>
                     <p className="itemDetailCard__txt--price">Precio ${price}</p>
-                    <div className="itemDetailCard__txt-buy">
-                        <ItemCount stock={stock}/>
+                    <div id="itemDetailBuying" className="itemDetailCard__txt-buy">
+                        <ItemCount stock={stock} onAdd={onAdd}/>
                         <p className="stockAlert">¡Quedan {stock} unidades!</p>
+                    </div>
+                    {/* botón que tiene que estar oculto y llevar al path '/cart' */}
+                    <div id="itemDetailBuyed" style={{display: "none"}}>
+                    <p>Estás comprando {cantidadComprada} {title} por ${precioCompra}</p>
+                    <Link to={'/cart'}><button id="buyed">Terminar mi compra</button></Link>
                     </div>
                 </div>
         </div>

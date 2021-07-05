@@ -11,7 +11,7 @@ export const NavBar = () => {
             <nav className="header__nav-primary">
                 <ul>
                     {categories.map( (category) => 
-                        <NavLink to={`/category/${category}`} activeClassName="activeLink" class="navigation" key={category}><li>{category}</li></NavLink>
+                        <NavLink to={`/category/${category}`} activeClassName="activeLink" className="navigation" key={category}><li>{category}</li></NavLink>
                     )}
                 </ul>
             </nav>
