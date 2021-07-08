@@ -12,17 +12,6 @@ export const ItemCount = ({stock, initial = 1, onAdd}) => {
         let newCantidad = parseInt(cantidad) -1
         setCantidad(newCantidad)
     }
-    /*
-    function gracias() {
-        if(cantidad > 0) {
-            alert("Gracias por tu compra")
-        } else {
-            alert("No compraste nada")
-        }
-        onAdd()
-    }
-    */
-
     
     // vista
     return(
@@ -36,7 +25,7 @@ export const ItemCount = ({stock, initial = 1, onAdd}) => {
                 onClick={() => increment()}
                 disabled={cantidad>=stock}>+</button>
             </div>
-            <button type="submit" onClick={onAdd} value={cantidad}>Comprar</button>
+            <button type="submit" onClick={() => onAdd(cantidad)} value={cantidad}>Comprar</button>
         </div>
     )
 }

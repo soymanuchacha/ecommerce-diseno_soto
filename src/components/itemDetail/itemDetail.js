@@ -8,13 +8,13 @@ export const ItemDetail = ( {item} ) => {
     const [cantidadComprada, setCantidadComprada] = useState(0)
     const [precioCompra, setPrecioCompra] = useState(0)
 
-    const onAdd = (quantityToAdd) => {
+    const onAdd = (e) => {
         // almacenar el valor de itemCount en un estado interno de itemDetail para desaparecer itemCount
-        setCantidadComprada(quantityToAdd.target.value)
-        setPrecioCompra( (quantityToAdd.target.value)*price )
+        setCantidadComprada(e)
+        setPrecioCompra( (e)*price )
         // desaparece ItemCount y aparece button terminar compra
         document.getElementById("itemDetailBuying").style.display="none"
-        document.getElementById("itemDetailBuyed").style.display="block"
+        document.getElementById("itemDetailBought").style.display="block"
     }
     
     return(
@@ -30,9 +30,9 @@ export const ItemDetail = ( {item} ) => {
                         <p className="stockAlert">¡Quedan {stock} unidades!</p>
                     </div>
                     {/* botón que tiene que estar oculto y llevar al path '/cart' */}
-                    <div id="itemDetailBuyed" style={{display: "none"}}>
+                    <div id="itemDetailBought" style={{display: "none"}}>
                     <p>Estás comprando {cantidadComprada} {title} por ${precioCompra}</p>
-                    <Link to={'/cart'}><button id="buyed">Terminar mi compra</button></Link>
+                    <Link to={'/cart'}><button id="bought">Terminar mi compra</button></Link>
                     </div>
                 </div>
         </div>
