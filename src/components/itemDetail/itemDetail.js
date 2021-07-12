@@ -1,12 +1,14 @@
 import './itemDetail.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { ItemCount } from "../itemCount/itemCount"
 import { Link } from 'react-router-dom'
+import {CartContext} from '../../context/cartContext'
 
 export const ItemDetail = ( {item} ) => {
     const {id, title, price, pictureUrl, category, description, stock} = item
     const [cantidadComprada, setCantidadComprada] = useState(0)
     const [precioCompra, setPrecioCompra] = useState(0)
+    const {addItem} = useContext(CartContext)
 
     const onAdd = (e) => {
         // almacenar el valor de itemCount en un estado interno de itemDetail para desaparecer itemCount
@@ -15,6 +17,16 @@ export const ItemDetail = ( {item} ) => {
         // desaparece ItemCount y aparece button terminar compra
         document.getElementById("itemDetailBuying").style.display="none"
         document.getElementById("itemDetailBought").style.display="block"
+        // cartContext
+        addItem(
+            {
+                id: item.id,
+                title: item.title,
+                price: item.price,
+                quantity: parseInt(e),
+                subtotal: ((item.price) * parseInt(e))
+            }
+        )
     }
     
     return(
