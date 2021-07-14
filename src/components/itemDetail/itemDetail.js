@@ -18,15 +18,17 @@ export const ItemDetail = ( {item} ) => {
         document.getElementById("itemDetailBuying").style.display="none"
         document.getElementById("itemDetailBought").style.display="block"
         // cartContext
+        addItem(item , e)
+
+        /*
         addItem(
             {
                 id: item.id,
                 title: item.title,
                 price: item.price,
                 quantity: parseInt(e),
-                subtotal: ((item.price) * parseInt(e))
             }
-        )
+        ) */
     }
     
     return(
@@ -50,3 +52,5 @@ export const ItemDetail = ( {item} ) => {
         </div>
     )
 }
+
+// corregir la desaparición/aparición a rendering condicional

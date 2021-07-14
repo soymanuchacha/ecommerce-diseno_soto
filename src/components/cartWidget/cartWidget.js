@@ -1,5 +1,5 @@
-import cart from './cart.svg';
-import search from './search.svg';
+import cart from '../../assets/icons/cart.svg';
+// import search from './search.svg';
 import './cartWidget.css';
 
 export const CartWidget = () => {
