@@ -1,0 +1,15 @@
+.listaItems-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70vw;
+    margin: 0 auto;
+}
+.listaItems-buttons button {
+    width: 30vw;
+}
+
+.listaItems-titulos, .listaItems-item  {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 5vw;
+}

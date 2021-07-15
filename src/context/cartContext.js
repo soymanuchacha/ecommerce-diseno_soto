@@ -1,9 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext()
 
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
+    const [cantidadItems, setCantidadItems] = useState(0)
 
     // añade un item al carrito
     const addItem = (item, quantity) => {
@@ -17,7 +18,8 @@ export const CartProvider = ({children}) => {
                     title: item.title,
                     price: item.price
                 },
-                quantity: quantity
+                quantity: quantity,
+                subtotal: ( quantity * item.price )
             }
             setCart([...cart, newItem])
         } else {
@@ -26,7 +28,8 @@ export const CartProvider = ({children}) => {
                 if(act.item.id === item.id) {
                     return{
                         ...act,
-                        quantity:  ( parseInt(act.quantity) + parseInt(quantity) )
+                        quantity:  ( parseInt(act.quantity) + parseInt(quantity) ),
+                        subtotal: ( act.subtotal + (parseInt(quantity) * act.item.price) )
                     }
                 }
                 return act
@@ -37,6 +40,7 @@ export const CartProvider = ({children}) => {
 
     // borra un único item del carrito
     const removeItem = (itemId) => {
+        console.log("Borrando item")
         const newCart = cart.filter( item => item.item.id !== itemId )
         setCart(newCart)
     }
@@ -45,12 +49,29 @@ export const CartProvider = ({children}) => {
     const clear = () => {
         console.log("Borrando carrito")
         setCart([])
+        setCantidadItems(0)
     }
     
-    console.log("Cart: ", cart)
+    // Interacción con el ícono carrito
+    const cartItemsNumber = () => {
+        let totalItems = 0
+        if(cart.length > 0) { 
+            cart.forEach( (item) => {
+                totalItems += item.quantity
+            })
+            setCantidadItems(totalItems)
+        }        
+    }
+    useEffect(() => {
+        cartItemsNumber()
+    }, [cart])
+    
+    /* prueba de salida de items
+    console.log("Cart: ", cart) 
+    */    
 
     return(
-        <CartContext.Provider value={{addItem, removeItem, clear}}>
+        <CartContext.Provider value={{addItem, removeItem, clear, cart, cantidadItems}}>
             {children}
         </CartContext.Provider>
     )
