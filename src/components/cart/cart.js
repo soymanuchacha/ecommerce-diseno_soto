@@ -47,7 +47,7 @@ export const Cart = () => {
                       <p>{item.item.price}</p>
                       <p>{item.quantity}</p>
                       <p>{item.subtotal}</p>
-                      <div onClick={removeItem} style={{cursor: "pointer"}}><img src={bin} alt="Eliminar producto" style={{width: "2vw"}}/></div>
+                      <div onClick={() => removeItem(item.item.id)} style={{cursor: "pointer"}}><img src={bin} alt="Eliminar producto" style={{width: "2vw"}}/></div>
                     </div>
                   )
                 })}

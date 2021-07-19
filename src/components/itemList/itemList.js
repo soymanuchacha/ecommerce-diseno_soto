@@ -1,3 +1,4 @@
+// Componentes
 import { Item } from '../item/item';
 
 export const ItemList = ( {catalogoItems} ) => {
@@ -5,7 +6,7 @@ export const ItemList = ( {catalogoItems} ) => {
     return(
         <>
             {productosMapped.length === 0 
-            ?   <p className="loader">Cargando <b>:o</b></p>
+            ?   <p className="noCategoryResults">No hay productos disponibles para esta categoría por el momento</p>
             :   productosMapped
             }
         </>

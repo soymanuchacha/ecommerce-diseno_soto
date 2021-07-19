@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import {CartWidget} from '../cartWidget/cartWidget';
 
 export const NavBar = () => {
-    const categories = ["indumentaria", "prints"]
+    const categories = ["indumentaria", "impresiones", "cuadros", "sale"]
     return(
         <header>
             <div className="header__logo"><Link exact to={'/'}><img src={logo} alt="Logo"/></Link></div>

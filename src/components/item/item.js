@@ -1,14 +1,14 @@
-import './item.css';
 import { Link } from 'react-router-dom';
+import './item.css';
 
 export const Item = ( {item} ) => {
-    const {id, title, price, pictureUrl} = item
+    console.log("item total is:", item)
     return(
-        <div id={id} className="itemCard">
-            <img src={pictureUrl} alt={title}/>
-            <h2>{title}</h2>
-            <p className="price">${price}</p>
-            <Link className="verItemLink" to={`/item/${id}`}><div className="verItem">Ver producto</div></Link>
+        <div id={item.id} className="itemCard">
+            <img src={`../../assets/images/${item.item.pictureUrl}.jpg`} alt={item.item.title}/>
+            <h2>{item.item.title}</h2>
+            <p className="price">${item.item.price}</p>
+            <Link className="verItemLink" to={`/item/${item.id}`}><div className="verItem">Ver producto</div></Link>
         </div>
     )
 }

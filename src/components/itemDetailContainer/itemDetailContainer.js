@@ -1,43 +1,37 @@
 import { useEffect, useState } from "react"
-import { ItemDetail } from "../itemDetail/itemDetail"
 import { useParams } from "react-router-dom"
-// imagenes
-import gorraOrange from '../../assets/images/gorraOrange.jpeg'
-import gorraFlores from '../../assets/images/gorraFlores.jpeg'
-import fanzineTormenta from '../../assets/images/fanzineTormenta.jpeg'
+// Componentes
+import { ItemDetail } from "../itemDetail/itemDetail"
+import { Loading } from "../loader/loader"
+// Firebase
+import { dataBase } from "../../firebase/firebase"
 
 export const ItemDetailContainer = () => {
     const {id} = useParams()
-    const [item, setItem]= useState([])
-    const productos = [
-        {
-            id: 1,
-            category: "indumentaria",
-            title: "Gorra orange",
-            description: "Bordado de manera artesanal. Disponible en amarillo, azul y negro.",
-            price: 1500,
-            stock: 5,
-            pictureUrl: gorraOrange
-        },
-        {
-            id: 2,
-            category: "indumentaria",
-            title: "Gorra flores",
-            description: "Bordada de manera artesanal. Únicamente disponible en rojo.",
-            price: 1800,
-            stock: 2,
-            pictureUrl: gorraFlores 
-        },
-        {
-            id: 3,
-            category: "prints",
-            title: "Fanzine tormenta",
-            description: "Publicación autoproducida de seis hojas y un poster. Impreso en opalina 180gr.",
-            price: 500,
-            stock: 20,
-            pictureUrl: fanzineTormenta
-        }
-    ]
+    const [item, setItem] = useState([])
+    const [loading, setLoading] = useState(false) 
+
+    useEffect( () => {
+        setLoading(true)
+        const db = dataBase
+        const itemCollection = db.collection("products")
+        const product = itemCollection.doc(id)
+
+        product.get().then( (doc) => {
+            if(doc) {
+                setItem( {id: doc.id, item: {...doc.data()}} )
+            } else {
+                console.log("No existe el item")
+            }
+        }).catch( (error) => {
+            console.log("Hubo un error", error)
+        }).finally( () => {
+            setLoading(false)
+        })
+    }, [id])
+    console.log("haber item", item)
+    
+    /*
     useEffect( () => {
         const getItem = new Promise( (resolve, reject) => {
             setTimeout( () => {
@@ -53,10 +47,11 @@ export const ItemDetailContainer = () => {
             }
         )
     }, [id])
+    */
     return(
         <>
-            { item === undefined   
-                ? <p>Cargando :O</p>
+            { loading 
+                ? <Loading />
                 : <ItemDetail item={item} />
             }
         </>
