@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import './item.css';
 
 export const Item = ( {item} ) => {
-    console.log("item total is:", item)
     return(
         <div id={item.id} className="itemCard">
             <img src={`../../assets/images/${item.item.pictureUrl}.jpg`} alt={item.item.title}/>

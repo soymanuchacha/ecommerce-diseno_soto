@@ -14,14 +14,15 @@ export const ItemDetailContainer = () => {
     useEffect( () => {
         setLoading(true)
         const db = dataBase
-        const itemCollection = db.collection("products")
-        const product = itemCollection.doc(id)
+        const idItem = db.collection("productos").doc(id)
 
-        product.get().then( (doc) => {
+        idItem.get().then( (doc) => {
             if(doc) {
-                setItem( {id: doc.id, item: {...doc.data()}} )
+                console.log("encontré el item")
+                setItem( { id: doc.id, item: {...doc.data()} } )
             } else {
                 console.log("No existe el item")
+                return
             }
         }).catch( (error) => {
             console.log("Hubo un error", error)
@@ -29,25 +30,8 @@ export const ItemDetailContainer = () => {
             setLoading(false)
         })
     }, [id])
-    console.log("haber item", item)
+    console.log("itemDetailContainer item", item)
     
-    /*
-    useEffect( () => {
-        const getItem = new Promise( (resolve, reject) => {
-            setTimeout( () => {
-                resolve(productos.filter( (producto) => parseInt(producto.id) === parseInt(id) ))
-            }, 2000)
-        })
-        getItem.then(
-            (detalleProd) => {
-                setItem(detalleProd[0])    
-            },
-            (error) => {
-                console.log("No encontramos el producto")
-            }
-        )
-    }, [id])
-    */
     return(
         <>
             { loading 
@@ -57,3 +41,20 @@ export const ItemDetailContainer = () => {
         </>
     )
 }
+/*
+useEffect( () => {
+    const getItem = new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            resolve(productos.filter( (producto) => parseInt(producto.id) === parseInt(id) ))
+        }, 2000)
+    })
+    getItem.then(
+        (detalleProd) => {
+            setItem(detalleProd[0])    
+        },
+        (error) => {
+            console.log("No encontramos el producto")
+        }
+    )
+}, [id])
+*/
