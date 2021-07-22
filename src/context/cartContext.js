@@ -9,17 +9,18 @@ export const CartProvider = ({children}) => {
     // añade un item al carrito
     const addItem = (item, quantity) => {
         // búsqueda del producto
+        console.log("cart item: ", item)
         const isInCart = cart.find( act => act.item.id === item.id )
         if(!isInCart) {
             // si no está, lo agrego al array
             const newItem = {
                 item: {
                     id: item.id,
-                    title: item.title,
-                    price: item.price
+                    title: item.item.title,
+                    price: item.item.price
                 },
                 quantity: quantity,
-                subtotal: ( quantity * item.price )
+                subtotal: ( quantity * item.item.price )
             }
             setCart([...cart, newItem])
         } else {
@@ -66,9 +67,8 @@ export const CartProvider = ({children}) => {
         cartItemsNumber()
     }, [cart])
     
-    /* prueba de salida de items
     console.log("Cart: ", cart) 
-    */    
+       
 
     return(
         <CartContext.Provider value={{addItem, removeItem, clear, cart, cantidadItems}}>

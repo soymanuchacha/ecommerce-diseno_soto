@@ -1,60 +1,44 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 // Componentes
 import { ItemDetail } from "../itemDetail/itemDetail"
-import { Loading } from "../loader/loader"
+import { Loading } from "../loader/loader";
 // Firebase
-import { dataBase } from "../../firebase/firebase"
+import { dataBase } from '../../firebase/firebase'
 
 export const ItemDetailContainer = () => {
     const {id} = useParams()
-    const [item, setItem] = useState([])
-    const [loading, setLoading] = useState(false) 
+    const [item, setItem] = useState("")
+    const [loading, setLoading] = useState(false)
 
     useEffect( () => {
         setLoading(true)
         const db = dataBase
-        const idItem = db.collection("productos").doc(id)
+        const itemCollection = db.collection("productos")
+        const producto = itemCollection.doc(id)
 
-        idItem.get().then( (doc) => {
-            if(doc) {
-                console.log("encontré el item")
-                setItem( { id: doc.id, item: {...doc.data()} } )
-            } else {
+        producto.get().then( (doc) => {
+            if(!doc.exists) {
                 console.log("No existe el item")
                 return
             }
+            setItem( {id: doc.id, item: {...doc.data()}} )
         }).catch( (error) => {
             console.log("Hubo un error", error)
         }).finally( () => {
             setLoading(false)
         })
     }, [id])
-    console.log("itemDetailContainer item", item)
-    
+
+    // verificación
+    console.log("En itemDetailContainer: ", item)
+
     return(
         <>
-            { loading 
-                ? <Loading />
-                : <ItemDetail item={item} />
+            {loading
+                ?   <Loading />
+                :   <ItemDetail item={item} key={item.id} />
             }
         </>
     )
 }
-/*
-useEffect( () => {
-    const getItem = new Promise( (resolve, reject) => {
-        setTimeout( () => {
-            resolve(productos.filter( (producto) => parseInt(producto.id) === parseInt(id) ))
-        }, 2000)
-    })
-    getItem.then(
-        (detalleProd) => {
-            setItem(detalleProd[0])    
-        },
-        (error) => {
-            console.log("No encontramos el producto")
-        }
-    )
-}, [id])
-*/

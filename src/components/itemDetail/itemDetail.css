@@ -59,7 +59,7 @@ button:hover, .bougthButton:hover {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.bougthButton{
+.boughtButton{
     background-color: #ee3b36;
     color: white;
     font-weight: bold;

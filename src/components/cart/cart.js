@@ -23,9 +23,8 @@ export const Cart = () => {
     setTotalCost(newTotal)
   }, [cart])
 
-  /* prueba de salida de items
+  // verificación
   console.log("Cart at miCarrito", cart)
-  */  
 
   return( 
     <>
@@ -40,8 +39,8 @@ export const Cart = () => {
               </div>
 
               <ul className="listaItems-items">
-                {cart.map( item => {
-                  return(
+                {cart.map( item => 
+                  (
                     <div className="listaItems-item" key={item.item.id}>
                       <p>{item.item.title}</p>
                       <p>{item.item.price}</p>
@@ -50,21 +49,21 @@ export const Cart = () => {
                       <div onClick={() => removeItem(item.item.id)} style={{cursor: "pointer"}}><img src={bin} alt="Eliminar producto" style={{width: "2vw"}}/></div>
                     </div>
                   )
-                })}
+                )}
               </ul>
 
               <div className="listaItems-total">
                 <p>Total: ${totalCost}</p>
               </div>
               <div className="listaItems-buttons">
-              <button className="bougthButton" onClick={clear}>Borrar carrito</button>
-              <button className="bougthButton" onClick={finalizarCompra}>Finalizar compra</button>
+                <button className="bougthButton" onClick={clear}>Borrar carrito</button>
+                <button className="bougthButton" onClick={finalizarCompra}>Finalizar compra</button>
               </div>
             </div> )
         : ( <div className="sinCompra">
-            <p>¡Todavía no has agregado items al carrito!</p>
-            <Link exact to={'/'} className="bougthButton">Continuar comprando</Link>
-          </div> )
+              <p>¡Todavía no has agregado items al carrito!</p>
+              <Link exact to={'/'} className="bougthButton">Continuar comprando</Link>
+            </div> )
       }
     </>
   )
