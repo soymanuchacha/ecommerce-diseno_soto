@@ -22,9 +22,6 @@ export const ItemDetail = ({item}) => {
         addItem(item, e)
     }
 
-    // verificación
-    console.log("En itemDetail: ", item)
-
     return(
         <>
             {!item

@@ -1,0 +1,20 @@
+[
+    {
+        "label": "Nombre",
+        "name": "name",
+        "value": "",
+        "required": true
+    },
+    {
+        "label": "Correo electrónico",
+        "name": "email",
+        "value": "",
+        "required": true
+    },
+    {
+        "label": "Teléfono",
+        "name": "phone",
+        "value": "",
+        "required": true
+    }
+]

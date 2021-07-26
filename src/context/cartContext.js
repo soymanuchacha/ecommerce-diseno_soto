@@ -5,6 +5,7 @@ export const CartContext = createContext()
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [cantidadItems, setCantidadItems] = useState(0)
+    const [total, setTotal] = useState(0)
 
     // añade un item al carrito
     const addItem = (item, quantity) => {
@@ -63,15 +64,27 @@ export const CartProvider = ({children}) => {
             setCantidadItems(totalItems)
         }        
     }
+
+    // Precio total a pagar
+    const totalCalc = () => {
+        let newTotal = 0
+        if(cart.length > 0) {
+            cart.map( item => (
+                newTotal += item.subtotal
+            ))
+        }
+        setTotal(newTotal)
+    }
+
     useEffect(() => {
         cartItemsNumber()
+        totalCalc()
     }, [cart])
     
     console.log("Cart: ", cart) 
-       
 
     return(
-        <CartContext.Provider value={{addItem, removeItem, clear, cart, cantidadItems}}>
+        <CartContext.Provider value={{addItem, removeItem, clear, cart, cantidadItems, total}}>
             {children}
         </CartContext.Provider>
     )

@@ -1,30 +1,12 @@
-import { useContext, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+// Contexto
+import { useContext } from "react"
 import { CartContext } from "../../context/cartContext"
 import bin from '../../assets/icons/trash.svg'
 import './cart.css'
 
 export const Cart = () => {
-  const {cart, clear, removeItem} = useContext(CartContext)
-  const [totalCost, setTotalCost] = useState(0)
-
-  const finalizarCompra = () => {
-    alert("Muchas gracias por tu compra")
-    clear()
-  }
-
-  useEffect(() => {
-    let newTotal = 0
-    if(cart.length > 0) {
-      cart.map( item => {
-        newTotal += item.subtotal
-      })
-    }
-    setTotalCost(newTotal)
-  }, [cart])
-
-  // verificación
-  console.log("Cart at miCarrito", cart)
+  const {cart, clear, removeItem, total} = useContext(CartContext)
 
   return( 
     <>
@@ -53,16 +35,16 @@ export const Cart = () => {
               </ul>
 
               <div className="listaItems-total">
-                <p>Total: ${totalCost}</p>
+                <p>Total: ${total}</p>
               </div>
               <div className="listaItems-buttons">
                 <button className="bougthButton" onClick={clear}>Borrar carrito</button>
-                <button className="bougthButton" onClick={finalizarCompra}>Finalizar compra</button>
+                <Link to={'/checkout'} className="bougthLink">Finalizar compra</Link>
               </div>
             </div> )
         : ( <div className="sinCompra">
               <p>¡Todavía no has agregado items al carrito!</p>
-              <Link exact to={'/'} className="bougthButton">Continuar comprando</Link>
+              <Link exact to={'/'} className="bougthLink">Continuar comprando</Link>
             </div> )
       }
     </>

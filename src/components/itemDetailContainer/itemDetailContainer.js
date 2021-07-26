@@ -30,9 +30,6 @@ export const ItemDetailContainer = () => {
         })
     }, [id])
 
-    // verificación
-    console.log("En itemDetailContainer: ", item)
-
     return(
         <>
             {loading
