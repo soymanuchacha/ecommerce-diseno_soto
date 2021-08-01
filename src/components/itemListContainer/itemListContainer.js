@@ -3,9 +3,10 @@ import { useParams } from 'react-router'
 // Componentes
 import { ItemList } from '../itemList/itemList'
 import { Loading } from '../loader/loader'
-import './itemListContainer.css'
 // Firebase
 import { dataBase } from '../../firebase/firebase'
+// Styles
+import './itemListContainer.css'
 
 export const ItemListContainer = ({greeting}) => {
     const {id} = useParams()

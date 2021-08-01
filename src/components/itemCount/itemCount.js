@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// Styles
 import './itemCount.css'
 
 export const ItemCount = ({stock, initial = 1, onAdd}) => {

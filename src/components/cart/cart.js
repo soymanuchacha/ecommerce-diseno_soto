@@ -1,7 +1,8 @@
+import { useContext, Fragment } from "react"
 import { Link } from "react-router-dom"
 // Contexto
-import { useContext } from "react"
 import { CartContext } from "../../context/cartContext"
+// Styles
 import bin from '../../assets/icons/trash.svg'
 import './cart.css'
 
@@ -9,7 +10,7 @@ export const Cart = () => {
   const {cart, clear, removeItem, total} = useContext(CartContext)
 
   return( 
-    <>
+    <Fragment>
       <h1>Mi carrito</h1>
       { (cart.length > 0)
         ? ( <div className="conCompra">
@@ -47,6 +48,6 @@ export const Cart = () => {
               <Link exact to={'/'} className="bougthLink">Continuar comprando</Link>
             </div> )
       }
-    </>
+    </Fragment>
   )
 }

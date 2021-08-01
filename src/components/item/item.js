@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+// Styles
 import './item.css';
 
 export const Item = ( {item} ) => {

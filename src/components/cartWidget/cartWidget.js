@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import cart from '../../assets/icons/cart.svg';
+import { Link } from 'react-router-dom';
+// Contexto
 import { CartContext } from '../../context/cartContext';
+// Styles
 import './cartWidget.css';
+import cart from '../../assets/icons/cart.svg';
 
 export const CartWidget = () => {
     const {cantidadItems} = useContext(CartContext)

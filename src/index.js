@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Components
+import { CartProvider } from './context/cartContext'
+import { App } from './App';
+// Styles
 import './index.css';
-import {CartProvider} from './context/cartContext'
-import {App} from './App';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,11 +1,13 @@
-import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// Componentes
-import {NavBar} from './components/navBar/navBar';
-import {ItemListContainer} from './components/itemListContainer/itemListContainer';
+// Components
+import { NavBar } from './components/navBar/navBar';
+import { ItemListContainer } from './components/itemListContainer/itemListContainer';
 import { ItemDetailContainer } from './components/itemDetailContainer/itemDetailContainer';
 import { Cart } from './components/cart/cart';
 import { Checkout } from './components/checkout/checkout';
+import { NoMatch } from './components/noMatch/noMatch';
+// Styles
+import './App.css';
 
 export const App = () => {
   return (
@@ -26,6 +28,9 @@ export const App = () => {
         </Route>
         <Route path='/checkout'>
 					<Checkout />
+        </Route>
+        <Route path="*">
+	        <NoMatch />
         </Route>
       </Switch>
     </BrowserRouter>

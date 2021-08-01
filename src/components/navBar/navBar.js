@@ -1,7 +1,9 @@
-import logo from './logo.svg';
-import './navBar.css';
 import { NavLink, Link } from 'react-router-dom';
-import {CartWidget} from '../cartWidget/cartWidget';
+// Components
+import { CartWidget } from '../cartWidget/cartWidget';
+// Styles
+import logo from '../../assets/icons/logo.svg';
+import './navBar.css';
 
 export const NavBar = () => {
     const categories = ["indumentaria", "impresiones", "cuadros", "sale"]

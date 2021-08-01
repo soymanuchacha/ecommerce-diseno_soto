@@ -1,10 +1,11 @@
-import { useState, useContext } from "react";
+import { useState, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 // Contexto
 import { CartContext } from "../../context/cartContext";
 // Componentes
 import { Loading } from '../loader/loader'
 import { ItemCount } from '../itemCount/itemCount'
+// Styles
 import './itemDetail.css'
 
 export const ItemDetail = ({item}) => {
@@ -23,7 +24,7 @@ export const ItemDetail = ({item}) => {
     }
 
     return(
-        <>
+        <Fragment>
             {!item
                 ?   <Loading />
                 :   <div className="itemDetailCard">
@@ -49,6 +50,6 @@ export const ItemDetail = ({item}) => {
                         </div>
                     </div>
             }
-        </>
+        </Fragment>
     )
 }

@@ -1,13 +1,14 @@
 // Contexto
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState, Fragment } from "react"
+// Contexto
 import { CartContext } from "../../context/cartContext"
-// Firebase
-import { dataBase } from '../../firebase/firebase'
+import inputs from '../../assets/info/inputs.json'
 // Componentes
+import { Link } from "react-router-dom";
 import { Form } from "../form/form"
 import { Loading } from "../loader/loader";
-import inputs from '../../assets/info/inputs.json'
-import { Link } from "react-router-dom";
+// Firebase
+import { dataBase } from '../../firebase/firebase'
 
 export const Checkout = () => {
     const {cart, total, clear} = useContext(CartContext)
@@ -48,6 +49,7 @@ export const Checkout = () => {
             price: item.price
         })
     )
+
     // defino la orden
     const newOrder = {
         buyer: {
@@ -61,7 +63,7 @@ export const Checkout = () => {
     }
 
     return(
-        <>
+        <Fragment>
         {loading
             ?   <Loading /> 
             :   ( cart.length > 0
@@ -80,7 +82,7 @@ export const Checkout = () => {
             )
                 
         }
-        </>
+        </Fragment>
     )
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { useParams } from "react-router";
 // Componentes
 import { ItemDetail } from "../itemDetail/itemDetail"
@@ -31,11 +31,11 @@ export const ItemDetailContainer = () => {
     }, [id])
 
     return(
-        <>
+        <Fragment>
             {loading
                 ?   <Loading />
                 :   <ItemDetail item={item} key={item.id} />
             }
-        </>
+        </Fragment>
     )
 }

@@ -1,4 +1,5 @@
-Primera entrega del proyecto final del curso de ReactJs de Coder House
+Proyecto final del curso de ReactJs de Coder House
 por Manuela Soto, julio 2021.
 
-La temática es un ecommerce de productos de diseño
+Podes ver el prototipo desktop en XD
+https://xd.adobe.com/view/3dffdff4-3bdc-4fff-a518-16bf00c909c5-68ac/

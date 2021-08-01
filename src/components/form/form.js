@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 // Componentes
 import { Input } from '../input/input'
+// Styles
 import './form.css'
 
 export const Form = ({inputs, onInput, onSubmit}) => {
