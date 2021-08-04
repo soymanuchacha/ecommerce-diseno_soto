@@ -1,0 +1,34 @@
+@import "normalize";
+@import "variables";
+@import "buttons";
+
+// components
+@import "/src/components/navBar/navBar";
+@import "/src/components/footer/footer";
+@import "/src/components/form/form";
+@import "/src/components/itemListContainer/itemListContainer";
+@import "/src/components/itemDetailContainer/itemDetailContainer";
+@import "/src/components/cart/cart";
+@import "/src/components/checkout/checkout";
+
+@import "/src/components/loader/loader";
+@import "/src/components/noMatch/noMatch";
+
+// global
+a {
+    text-decoration: none;
+}
+p {
+    color: $color-blue;
+}
+ul {
+    list-style-type: none;
+    li {
+        color: $color-blue;
+        font-size: $small-fontSize;
+        line-height: 1.8em;
+    }
+}
+.hidden-block {
+    display: none;
+}

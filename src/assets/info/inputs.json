@@ -3,18 +3,28 @@
         "label": "Nombre",
         "name": "name",
         "value": "",
-        "required": true
-    },
-    {
-        "label": "Correo electrónico",
-        "name": "email",
-        "value": "",
-        "required": true
+        "required": true,
+        "auth": false
     },
     {
         "label": "Teléfono",
         "name": "phone",
         "value": "",
-        "required": true
+        "required": true,
+        "auth": false
+    },
+    {
+        "label": "Correo electrónico",
+        "name": "email",
+        "value": "",
+        "required": true,
+        "auth": true
+    },
+    {
+        "label": "Reingresar correo electrónico",
+        "name": "emailAuth",
+        "value": "",
+        "required": true,
+        "auth": true
     }
 ]

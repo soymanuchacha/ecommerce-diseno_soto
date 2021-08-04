@@ -6,8 +6,9 @@ import { ItemDetailContainer } from './components/itemDetailContainer/itemDetail
 import { Cart } from './components/cart/cart';
 import { Checkout } from './components/checkout/checkout';
 import { NoMatch } from './components/noMatch/noMatch';
+import { Footer } from './components/footer/footer';
 // Styles
-import './App.css';
+import './styles/scss/app.scss';
 
 export const App = () => {
   return (
@@ -15,10 +16,10 @@ export const App = () => {
       <NavBar />
       <Switch>
         <Route exact path='/'>
-          <ItemListContainer greeting="buen shop"/>
+          <ItemListContainer greeting="buen shop" />
         </Route>
         <Route path='/category/:id'>
-				  <ItemListContainer greeting="buen shop"/>
+				  <ItemListContainer greeting="buen shop" />
 				</Route>
 				<Route path='/item/:id'>
 					<ItemDetailContainer />
@@ -33,6 +34,7 @@ export const App = () => {
 	        <NoMatch />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

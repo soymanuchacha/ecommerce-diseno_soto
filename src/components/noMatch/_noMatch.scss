@@ -1,0 +1,26 @@
+.noMatch {
+    width: 80%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &-img {
+        width: 40%;
+        img {
+            width: 100%;
+        }
+    }
+    &-txt {
+        width: 60%;
+        padding: 3em 0 0 3em;
+        h1 {
+            width: 80%;
+            color: $color-red;
+            font-size: $title-fontSize;
+            text-transform: uppercase;
+        }
+        p {
+            padding: 1em 0;
+        }
+    }
+}

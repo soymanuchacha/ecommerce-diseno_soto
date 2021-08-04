@@ -10,7 +10,6 @@ export const CartProvider = ({children}) => {
     // añade un item al carrito
     const addItem = (item, quantity) => {
         // búsqueda del producto
-        console.log("cart item: ", item)
         const isInCart = cart.find( act => act.item.id === item.id )
         if(!isInCart) {
             // si no está, lo agrego al array
@@ -81,8 +80,6 @@ export const CartProvider = ({children}) => {
         totalCalc()
     }, [cart])
     
-    console.log("Cart: ", cart) 
-
     return(
         <CartContext.Provider value={{addItem, removeItem, clear, cart, cantidadItems, total}}>
             {children}

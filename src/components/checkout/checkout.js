@@ -38,7 +38,7 @@ export const Checkout = () => {
     }
 
     const setOrderId = (id) => {
-        alert(`Muchas gracias ${formData.name}. Tu orden fue procesada con éxito, es la #${id}`)
+        alert(`Muchas gracias ${formData.name}. Tu orden fue procesada con éxito: #${id}`)
     }
 
     // listo el pedido 
@@ -67,18 +67,25 @@ export const Checkout = () => {
         {loading
             ?   <Loading /> 
             :   ( cart.length > 0
-                    ?   (<>        
+                    ?   (<section className="checkout">        
                             <h1>Mi checkout</h1>
-                            <div>
-                                <p>Mi compra:</p>
-                                <ul>
-                                { cart.map( item => (<li key={item.item.id}>{item.quantity} {item.item.title}</li>)) }
-                                </ul>
-                                <p>Total: ${total}</p>
+                            <div className="checkout-data">
+                                <div className="checkout-data__list">
+                                    <h2>Carrito</h2>
+                                    <div className="checkout-data__list-body">
+                                        { cart.map( item => (<ul className="checkout-data__list-body-line" key={item.item.id}>
+                                            <li>{item.quantity}</li>
+                                            <li>{item.item.title}</li>
+                                            <li>${item.item.price}</li>
+                                        </ul>)) }
+                                    </div>
+                                    <p>Total ${total}</p>
+                                </div>
+                                <Form className="checkout-data__form" 
+                                inputs={inputs} onInput={onInput} onSubmit={onSubmit} />
                             </div>
-                            <Form inputs={inputs} onInput={onInput} onSubmit={onSubmit} />
-                        </>) 
-                    :   <Link exact to='/' className="boughtButton">Volver</Link>
+                        </section>) 
+                    :   <Link exact to='/' className="primaryButton">Volver</Link>
             )
                 
         }

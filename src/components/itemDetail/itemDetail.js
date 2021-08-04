@@ -6,7 +6,7 @@ import { CartContext } from "../../context/cartContext";
 import { Loading } from '../loader/loader'
 import { ItemCount } from '../itemCount/itemCount'
 // Styles
-import './itemDetail.css'
+//import './itemDetail.css'
 
 export const ItemDetail = ({item}) => {
     const { addItem } = useContext(CartContext)
@@ -30,21 +30,20 @@ export const ItemDetail = ({item}) => {
                 :   <div className="itemDetailCard">
                         <div className="itemDetailCard__img"><img src={item.item.pictureUrl} alt={item.item.title}/></div>
                         <div className="itemDetailCard__txt">
-                            <h2 className="itemDetailCard__txt-header">{item.item.title}</h2>
-                            <p className="itemDetailCard__txt--category">Categoría: {item.item.category}</p>
-                            <p className="itemDetailCard__txt--description">{item.item.description}</p>
-                            <p className="itemDetailCard__txt--price">Precio ${item.item.price}</p>
+                            <p className="itemDetailCard__txt--category">{item.item.category}</p>
+                            <h1 className="itemDetailCard__txt--title">{item.item.title}</h1>
+                            <p className="itemDetailCard__txt--price">${item.item.price}</p>
+                            <p className="itemDetailCard__txt--description">{item.item.description}.</p>
                             {/* agregar al carrito: on -> off */}
-                            <div className={ showButtons ? "hidden-block" : "itemDetailCard__txt-buy"}>
+                            <div className={ showButtons ? "hidden-block" : "itemDetailCard__txt--buy"}>
                                 <ItemCount stock={item.item.stock} onAdd={onAdd} />
-                                <p className="stockAlert">¡Quedan {item.item.stock} unidades!</p>
                             </div>
                             {/* finalizar compra: off -> on */}
-                            <div className={ showButtons ? "itemDetailBought" : "hidden-block"}>
+                            <div className={ showButtons ? "itemDetailCard__txt--bought" : "hidden-block"}>
                                 <p>Estás comprando {cantidadComprada} {item.item.title} por ${precioCompra}</p>
-                                <div className="itemDetailBought-buttons">
-                                    <Link exact to={'/'} className="boughtButton">Continuar comprando</Link>
-                                    <Link to={'/cart'} className="boughtButton">Terminar mi compra</Link>
+                                <div className="itemDetailCard__txt--bought-buttons">
+                                    <Link exact to={'/'} className="primaryButton">Continuar comprando</Link>
+                                    <Link to={'/cart'} className="secondaryButton">Terminar mi compra</Link>
                                 </div>
                             </div>
                         </div>

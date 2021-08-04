@@ -1,0 +1,13 @@
+footer {
+    background-color: $color-blue;
+    color: #ffffff;
+    padding: 1em;
+    p {
+        text-align: center;
+        color: white;
+        a {
+            color: white;
+            font-style: italic;
+        }
+    }
+}

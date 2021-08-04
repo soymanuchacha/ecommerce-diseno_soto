@@ -1,0 +1,49 @@
+.checkout {
+    h1 {
+        color: $color-red;
+        font-size: $title-fontSize;
+        text-align: center;
+        margin: 1em 0;
+    }
+    &-data {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 1em 4em 4em 4em;
+        &__list {
+            width: 25%;
+            background-color: white;
+            box-shadow: $shadow-light;
+            position: relative;
+            h2 {
+                background-color: $color-red;
+                color: white;
+                font-weight: normal;
+                padding: .5em 1em;
+            }
+            &-body {
+                padding: 1em;
+                li {
+                    display: inline-block;
+                    padding: .3em 0;
+                }
+                &-line {
+                    li:nth-child(2) {
+                        width: 70%;
+                        padding-left: 1em;
+                    }
+                }
+            }
+            p {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background-color: $color-blue;
+                font-weight: bold;
+                color: white;
+                padding: .5em;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.itemDetailCard {
+    width: 90%;
+    margin: 4em auto;
+    display: flex;
+    &__img {
+        width: 50%;
+        img {
+            width: 100%;
+        }
+    }
+    &__txt {
+        padding-left: 3em;
+        &--category {
+            color: $color-cyan;
+            font-size: $text-fontSize;
+            padding-bottom: .3em;
+        }
+        &--title {
+            color: $color-blue;
+            font-size: $title-fontSize;
+            text-transform: uppercase;
+        }
+        &--price {
+            color: $color-red;
+            font-size: $title-fontSize;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        &--description {
+            width: 80%;
+            padding-top: 1em;
+        }
+        &--bought {
+            padding-top: 1.5em;
+            p {
+                color: $color-red;
+                text-align: center;
+                font-size: $small-fontSize;
+            }
+            &-buttons {
+                padding-top: 1em;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+// itemCount
+.itemCount {
+    width: 80%;
+    margin: 1em 0;
+    &__input {
+        display: flex;
+        padding-bottom: 1em;
+        p {
+            width: 40%;
+            text-align: center;
+            font-size: $subtitle-fontSize;
+            font-weight: bold;
+        }
+    }
+    &-stock {
+        padding-top: 1em;
+        color: $color-cyan;
+    }
+    button {
+        cursor: pointer;
+    }
+}
+.itemCountButton {
+    margin-left: 0;
+}
+
+// shop

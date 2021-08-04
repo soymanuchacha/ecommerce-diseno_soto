@@ -1,0 +1,55 @@
+.cart {
+    margin: 2em 3em;
+    h1 {
+        color: $color-red;
+        font-size: $title-fontSize;
+        text-align: center;
+        margin: 1em 0;
+    }
+    &__titles {
+        background-color: $color-red;
+        padding: .5em 2em;
+        li {
+            display: inline-block;
+            font-size: $regular-fontSize;
+            color: white;
+            width: 20%;
+        }
+    }
+    &__items {
+        &-line {
+            padding: .8em 2em;
+            &:nth-child(odd) {
+                background-color: $color-cream;
+            }
+            li {
+                display: inline-block;
+                font-size: $regular-fontSize;
+                text-transform: capitalize;
+                width: 20%;
+                img {
+                    height: 1em;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    &__total {
+        background-color: $color-blue;
+        li {
+            color: white;
+            padding: .5em 0;
+            font-size: $regular-fontSize;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    &__buttons {
+        width: 80%;
+        margin: 2em auto 4em auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

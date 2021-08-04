@@ -1,0 +1,20 @@
+// colors
+$color-blue: rgb(55, 99, 142);
+$color-cyan: rgb(146, 217, 245);
+$color-cream: rgb(252, 229, 216);
+$color-coral: rgb(241, 111, 103);
+$color-red: rgb(238, 59, 55);
+$color-gradient: transparent linear-gradient(0deg, $color-red 0%, $color-coral 46%, $color-cream 100%) 0% 0% no-repeat padding-box;
+
+// shadows
+$shadow-light: 0px 10px 15px rgba(241, 111, 103, .6);
+$shadow-intermediate: 0px 10px 15px rgba(241, 111, 103, .8);
+$shadow-strong: 0px 2px 5px $color-coral;
+
+// typography sizing
+$small-fontSize: .8em;
+$regular-fontSize: 1em;     // 16px
+$text-fontSize: 1.25em;     // 20px
+$subtitle-fontSize: 1.62em; // 26px
+$title-fontSize: 1.87em;    // 30px
+$header-fontSize: 2.50em;   // 40px

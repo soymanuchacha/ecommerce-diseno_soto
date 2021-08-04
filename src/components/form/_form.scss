@@ -1,0 +1,18 @@
+form {
+    width: 70%;
+    padding-left: 6em;
+    label {
+        color: $color-blue;
+        padding-left: 1em;
+    }
+    input {
+        width: 100%;
+        padding: .5em;
+        margin: .5em 0 1.3em 0;
+        border: 1px solid $color-blue;
+        border-radius: 10px;
+        &:hover {
+            background-color: $color-cream;
+        }
+    }
+}

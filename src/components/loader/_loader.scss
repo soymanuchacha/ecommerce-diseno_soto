@@ -1,0 +1,24 @@
+.loader {
+    width: 50%;
+    margin: 4em auto;
+    &-bar {
+        width: 100%;
+        height: 2vh;
+        background-color: $color-gradient;
+        animation-name: loadingProgress;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    p {
+        text-align: center;
+    }
+}
+
+@keyframes loadingProgress {
+    0% {
+        width: 10%;
+    }
+    100% {
+        width: 100%;
+    }
+}

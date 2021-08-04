@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // Contexto
 import { CartContext } from '../../context/cartContext';
 // Styles
-import './cartWidget.css';
+//import './cartWidget.css';
 import cart from '../../assets/icons/cart.svg';
 
 export const CartWidget = () => {
@@ -11,8 +11,10 @@ export const CartWidget = () => {
 
     return(
             <nav className="header__nav-icons">
-                <Link exact to="/cart"><img src={cart} alt="Mi carrito"/></Link>
-                <span className={cantidadItems > 0 ? "cartItemsNumber" : "hidden-block"}>{cantidadItems}</span>
+                <Link exact to="/cart">
+                    <img src={cart} alt="Mi carrito"/>
+                    <span className={cantidadItems > 0 ? "cartItemsNumber" : "hidden-block"}>{cantidadItems}</span>
+                </Link>
             </nav>
     )
 }

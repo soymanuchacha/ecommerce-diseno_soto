@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { Link } from "react-router-dom";
 // Componentes
 import { Item } from '../item/item';
 
@@ -7,7 +8,10 @@ export const ItemList = ( {catalogoItems} ) => {
     return(
         <Fragment>
             {productosMapped.length === 0 
-            ?   <p className="noCategoryResults">No hay productos disponibles para esta categoría por el momento</p>
+            ?   <div className="noResults">
+                    <p>Lo sentimos, no hay productos disponibles en esta categoría</p>
+                    <Link exact to={'/'} className="primaryButton">Ir al inicio</Link>
+                </div>
             :   productosMapped
             }
         </Fragment>
