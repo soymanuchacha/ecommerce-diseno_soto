@@ -1,0 +1,28 @@
+.outputOrder {
+    background: $color-gradient;
+    padding: 3em 0;
+    &__card {
+        width: 70%;
+        margin: 0 auto;
+        img {
+            width: 20%;
+            margin: 1em 40%;
+        }
+        h1 {
+            font-size: $title-fontSize;
+            text-align: center;
+            color: white;
+            padding: 1em 0;
+        }
+        p {
+            text-align: center;
+            color: white;
+            line-height: 1.6em;
+        }
+        .orderButton {
+            background-color: white;
+            color: $color-red;
+            margin: 1.5em 37%;
+        }
+    }
+}
